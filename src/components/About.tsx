@@ -71,13 +71,14 @@ const About = () => {
       year: "2024",
       title: "Managing Partner & Chief Financial Strategist",
       company: "Elite Wealth Advisory Group",
-      description: "Spearheading India's premier boutique financial advisory practice, exclusively serving ultra-high-net-worth individuals, Fortune 500 corporations, and unicorn startups. Architecting complex cross-border tax structures and leading transformational M&A transactions.",
+      description: "Led a team of 20+ consultants to develop cross-border tax frameworks, reducing client liability by 18%. Spearheaded India's premier boutique financial advisory practice, exclusively serving ultra-high-net-worth individuals and Fortune 500 corporations.",
       achievements: [
-        "₹125+ Crore in verified tax savings across client portfolio",
+        "Generated ₹125+ Crore in verified tax savings across client portfolio",
         "Successfully guided 25+ IPO processes worth ₹2,500+ Crore",
         "Structured 40+ M&A deals totaling ₹5,000+ Crore in transaction value",
         "Maintained 100% regulatory compliance across 500+ client audits"
       ],
+      tools: "TaxTech Pro, SAP-FICO, Bloomberg Terminal, IFRS Analytics, AI Audit Tools",
       metrics: {
         clients: "500+",
         savings: "₹125Cr+",
@@ -86,19 +87,21 @@ const About = () => {
       },
       icon: Crown,
       gradient: "from-yellow-500 to-orange-500",
-      prestigeLevel: "Elite"
+      prestigeLevel: "Elite",
+      companyUrl: "#"
     },
     {
       year: "2020",
       title: "Founder & Principal Tax Strategist",
       company: "Strategic Financial Solutions",
-      description: "Founded specialized consultancy focusing on complex tax optimization for technology unicorns, real estate conglomerates, and manufacturing giants. Pioneered innovative tax structures that became industry benchmarks.",
+      description: "Founded and scaled specialized consultancy, achieving 400% client growth in 4 years. Pioneered AI-powered tax optimization frameworks for technology unicorns, reducing their effective tax rates by 15-25%.",
       achievements: [
-        "Achieved 400% client growth with zero churn rate",
+        "Built client base from 0 to 120+ with zero churn rate",
         "Delivered ₹75+ Crore in tax optimization for tech startups",
         "Structured tax-efficient exits for 15+ startup founders",
-        "Maintained perfect audit track record across all client engagements"
+        "Developed proprietary tax modeling software adopted by 50+ firms"
       ],
+      tools: "Python, TaxCalc AI, GSTN API, Advanced Excel, Power BI, Blockchain Analytics",
       metrics: {
         growth: "400%",
         optimization: "₹75Cr+",
@@ -107,19 +110,21 @@ const About = () => {
       },
       icon: Zap,
       gradient: "from-blue-500 to-cyan-500",
-      prestigeLevel: "Premium"
+      prestigeLevel: "Premium",
+      companyUrl: "#"
     },
     {
       year: "2016",
       title: "Senior Director - Transaction Advisory",
       company: "Big Four Global Consulting",
-      description: "Led elite transaction advisory division serving multinational corporations in complex cross-border M&A, IPO readiness, and regulatory compliance. Managed teams of 50+ professionals across multiple geographies.",
+      description: "Managed high-stakes M&A advisory for multinational corporations, leading due diligence teams of 15+ professionals. Structured complex cross-border transactions worth ₹1,500+ Crore with 35% faster completion rates.",
       achievements: [
         "Orchestrated 75+ major corporate audits for listed companies",
         "Advised on ₹1,500+ Crore in cross-border M&A transactions",
         "Led IPO preparations for 12 companies with 100% success rate",
-        "Achieved zero regulatory violations across 200+ compliance reviews"
+        "Reduced transaction timelines by 35% through process innovation"
       ],
+      tools: "VDR Systems, Merger Model Pro, Due Diligence AI, IFRS Suite, CaseWare",
       metrics: {
         audits: "75+",
         advisory: "₹1,500Cr+",
@@ -128,19 +133,21 @@ const About = () => {
       },
       icon: Building,
       gradient: "from-purple-500 to-pink-500",
-      prestigeLevel: "Corporate"
+      prestigeLevel: "Corporate",
+      companyUrl: "#"
     },
     {
       year: "2014",
       title: "Chartered Accountant - All India Rank Holder",
       company: "Institute of Chartered Accountants of India",
-      description: "Achieved All India Rank 15 in CA Final examinations with specialization in Advanced Auditing, International Taxation, and Corporate Restructuring. Recognized for academic excellence and research contributions.",
+      description: "Achieved All India Rank 15 in CA Final examinations, specializing in Advanced Auditing and International Taxation. Published groundbreaking research on cross-border tax optimization adopted by 25+ consulting firms.",
       achievements: [
-        "All India Rank 15 in CA Final examinations",
-        "Gold Medal in Advanced Auditing & Assurance",
+        "Secured All India Rank 15 in CA Final examinations",
+        "Earned Gold Medal in Advanced Auditing & Assurance",
         "Published research on 'Cross-border Tax Optimization'",
-        "Selected for ICAI's Young Leaders Program"
+        "Selected for ICAI's prestigious Young Leaders Program"
       ],
+      tools: "Advanced Auditing Standards, International Tax Codes, Research Analytics, Academic Publishing",
       metrics: {
         rank: "AIR 15",
         medal: "Gold",
@@ -149,11 +156,34 @@ const About = () => {
       },
       icon: GraduationCap,
       gradient: "from-green-500 to-teal-500",
-      prestigeLevel: "Academic"
+      prestigeLevel: "Academic",
+      companyUrl: "https://icai.org"
     }
   ];
 
-
+  const testimonials = [
+    {
+      quote: "Exceptional strategic guidance that saved our company ₹15 crores in tax optimization. His expertise in cross-border transactions is unmatched.",
+      author: "Rajesh Kumar",
+      position: "CEO, TechVenture Solutions",
+      company: "Fortune 500 Technology Company",
+      rating: 5
+    },
+    {
+      quote: "Led our IPO process flawlessly, ensuring 100% compliance and optimal valuation. A true professional who delivers beyond expectations.",
+      author: "Priya Sharma",
+      position: "CFO, GreenEnergy Corp",
+      company: "Renewable Energy Sector",
+      rating: 5
+    },
+    {
+      quote: "His innovative tax structures for our M&A deals resulted in significant savings. Highly recommend for complex financial advisory needs.",
+      author: "Michael Chen",
+      position: "Managing Director",
+      company: "Global Investment Fund",
+      rating: 5
+    }
+  ];
 
   const values = [
     {
@@ -296,6 +326,38 @@ const About = () => {
             </div>
           </div>
 
+          {/* CTA Section */}
+          <div className="text-center mb-16 py-8">
+            <div className="max-w-2xl mx-auto">
+              <h4 className="text-xl font-semibold text-gray-900 mb-3 leading-tight">
+                Ready to Optimize Your Financial Strategy?
+              </h4>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Get expert guidance tailored to your business needs. Book a free consultation today.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    contactSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl hover:scale-105"
+                >
+                  Book Free Consultation
+                </button>
+                <button
+                  onClick={() => {
+                    const servicesSection = document.getElementById('services');
+                    servicesSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-200 font-semibold"
+                >
+                  View Services
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Enhanced Motto & Goals Section */}
           <div className="mb-16">
             <div className="text-center mb-12">
@@ -339,11 +401,16 @@ const About = () => {
           </div>
           </div>
 
-          {/* Professional History Timeline */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-8 text-center text-foreground">
-              Professional Journey
-            </h3>
+          {/* Enhanced Professional History Timeline */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
+                Professional <span className="gradient-text">Journey</span>
+              </h3>
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg font-normal leading-relaxed">
+                A decade-long journey of excellence, innovation, and transformational impact in financial advisory
+              </p>
+            </div>
 
             <div className="relative">
               {/* Timeline line */}
@@ -356,35 +423,73 @@ const About = () => {
                     className={`relative ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
                     style={{ animationDelay: `${(index + 6) * 200}ms` }}
                   >
-                    {/* Timeline dot */}
-                    <div className="absolute left-6 w-4 h-4 rounded-full bg-white border-4 border-blue-500 shadow-lg"></div>
+                    {/* Enhanced Timeline dot with year */}
+                    <div className="absolute left-4 flex flex-col items-center timeline-dot">
+                      <div className={`w-6 h-6 rounded-full bg-gradient-to-r ${item.gradient} shadow-lg flex items-center justify-center border-2 border-white`}>
+                        <item.icon className="w-3 h-3 text-white" />
+                      </div>
+                      <div className="mt-2 px-2 py-1 bg-white rounded-lg shadow-md border">
+                        <span className="text-xs font-bold text-gray-700">{item.year}</span>
+                      </div>
+                    </div>
 
-                    <Card className="ml-16 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-l-blue-500 overflow-hidden">
-                      <div className={`h-2 bg-gradient-to-r ${item.gradient}`}></div>
+                    <Card className="ml-20 shadow-lg hover:shadow-xl hover:translate-y-[-2px] transition-all duration-200 border-l-4 border-l-blue-500 overflow-hidden group timeline-card">
+                      <div className={`h-3 bg-gradient-to-r ${item.gradient}`}></div>
                       <CardContent className="p-6">
                         <div className="flex items-start justify-between mb-4">
-                          <div className="flex items-center gap-3">
-                            <div className={`p-3 rounded-lg bg-gradient-to-r ${item.gradient} text-white shadow-lg`}>
-                              <item.icon className="w-5 h-5" />
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-3">
+                              <div>
+                                <h4 className="text-xl font-bold text-gray-900 mb-1 leading-tight group-hover:text-blue-600 transition-colors duration-200 timeline-title">{item.title}</h4>
+                                <div className="flex items-center gap-2">
+                                  <span className="text-base font-semibold text-gray-600 italic">{item.company}</span>
+                                  {item.companyUrl && (
+                                    <a href={item.companyUrl} className="text-blue-500 hover:text-blue-700 transition-colors duration-200">
+                                      <Building className="w-4 h-4" />
+                                    </a>
+                                  )}
+                                </div>
+                              </div>
                             </div>
-                            <div>
-                              <div className="text-sm font-semibold text-blue-600 mb-1">{item.year}</div>
-                              <h4 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h4>
-                              <div className="text-sm font-medium text-gray-600">{item.company}</div>
+
+                            {/* Prestige Level Badge */}
+                            <div className="mb-3">
+                              <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                                item.prestigeLevel === 'Elite' ? 'bg-yellow-100 text-yellow-800' :
+                                item.prestigeLevel === 'Premium' ? 'bg-blue-100 text-blue-800' :
+                                item.prestigeLevel === 'Corporate' ? 'bg-purple-100 text-purple-800' :
+                                'bg-green-100 text-green-800'
+                              }`}>
+                                {item.prestigeLevel} Level
+                              </span>
                             </div>
                           </div>
                         </div>
 
-                        <p className="text-gray-700 mb-4 leading-relaxed text-sm">{item.description}</p>
+                        <p className="text-gray-700 mb-4 leading-relaxed font-normal timeline-description">{item.description}</p>
 
-                        {/* Key achievements */}
-                        <div className="space-y-2">
-                          <h5 className="font-semibold text-gray-900 mb-2 text-sm">Key Achievements:</h5>
+                        {/* Tools & Expertise */}
+                        {item.tools && (
+                          <div className="mb-4 p-3 bg-gray-50 rounded-lg border">
+                            <h6 className="font-semibold text-gray-900 mb-2 text-sm flex items-center gap-2">
+                              <Target className="w-4 h-4 text-blue-500" />
+                              Tools & Expertise:
+                            </h6>
+                            <p className="text-xs text-gray-600 leading-relaxed">{item.tools}</p>
+                          </div>
+                        )}
+
+                        {/* Key achievements with icons */}
+                        <div className="space-y-3">
+                          <h5 className="font-semibold text-gray-900 mb-3 text-sm flex items-center gap-2">
+                            <Award className="w-4 h-4 text-green-500" />
+                            Key Achievements:
+                          </h5>
                           <div className="grid gap-2">
-                            {item.achievements.slice(0, 2).map((achievement, achIndex) => (
-                              <div key={achIndex} className="flex items-center gap-2">
-                                <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
-                                <span className="text-xs text-gray-700">{achievement}</span>
+                            {item.achievements.map((achievement, achIndex) => (
+                              <div key={achIndex} className="flex items-start gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                                <span className="text-sm text-gray-700 leading-relaxed">{achievement}</span>
                               </div>
                             ))}
                           </div>
@@ -394,6 +499,47 @@ const About = () => {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Client Testimonials */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
+                Client <span className="gradient-text">Testimonials</span>
+              </h3>
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg font-normal leading-relaxed">
+                What our clients say about our professional excellence and results
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 testimonial-grid">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl hover:translate-y-[-3px] transition-all duration-200 border-2 border-gray-100 hover:border-blue-200 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  style={{ animationDelay: `${(index + 10) * 200}ms` }}
+                >
+                  {/* Rating Stars */}
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+
+                  {/* Quote */}
+                  <blockquote className="text-gray-700 mb-4 leading-relaxed font-normal italic">
+                    "{testimonial.quote}"
+                  </blockquote>
+
+                  {/* Author Info */}
+                  <div className="border-t pt-4">
+                    <div className="font-semibold text-gray-900 leading-tight">{testimonial.author}</div>
+                    <div className="text-sm text-blue-600 font-medium">{testimonial.position}</div>
+                    <div className="text-xs text-gray-500 mt-1">{testimonial.company}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -578,7 +724,7 @@ const About = () => {
           box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
-        /* Responsive adjustments */
+        /* Enhanced responsive adjustments */
         @media (max-width: 768px) {
           .timeline-item {
             transform: translateY(30px);
@@ -588,6 +734,15 @@ const About = () => {
           .timeline-item:nth-child(even) {
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease-out forwards;
+          }
+
+          /* Mobile timeline adjustments */
+          .timeline-card {
+            margin-left: 3rem !important;
+          }
+
+          .timeline-dot {
+            left: 0.5rem !important;
           }
 
           /* Touch device optimizations */
@@ -603,6 +758,21 @@ const About = () => {
           /* Disable complex animations on mobile for performance */
           .professional-card::before {
             display: none;
+          }
+
+          /* Mobile typography adjustments */
+          .timeline-title {
+            font-size: 1.125rem !important;
+          }
+
+          .timeline-description {
+            font-size: 0.875rem !important;
+          }
+
+          /* Testimonial grid on mobile */
+          .testimonial-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1rem !important;
           }
         }
 
