@@ -227,113 +227,175 @@ const About = () => {
     <section id="about" className="pt-12 pb-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          {/* 1. Introduction / About Me */}
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground leading-tight">
               About <span className="gradient-text">Me</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Dedicated Chartered Accountant with 15+ years of experience serving
-              <span className="font-semibold text-blue-600">500+ clients</span> across various industries.
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-6">
+              Elite Chartered Accountant & Strategic Financial Advisor for HNIs & Corporates
+            </p>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              Delivering <span className="font-bold text-green-700">₹125 Cr+ in savings</span> & guiding
+              <span className="font-bold text-blue-700"> 25+ IPOs</span> with 15+ years of experience serving
+              <span className="font-bold text-purple-700"> 500+ clients</span> across various industries.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Enhanced Professional Card */}
-            <div className={`relative ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-              <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 rounded-3xl p-6 border-2 border-blue-100 shadow-lg professional-card">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/3 to-purple-600/3 rounded-3xl"></div>
-
-                {/* Professional Avatar */}
-                <div className="relative text-center mb-6">
-                  <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-full shadow-2xl flex items-center justify-center mb-4 relative overflow-hidden animate-pulse-gentle">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-                    <Users className="w-16 h-16 text-white relative z-10" />
-
-                    {/* Floating badges */}
-                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-2 rounded-full shadow-lg animate-pulse">
-                      <Crown className="w-4 h-4" />
-                    </div>
-                    <div className="absolute -bottom-2 -left-2 bg-gradient-to-r from-green-400 to-emerald-500 text-white p-2 rounded-full shadow-lg animate-pulse">
-                      <Award className="w-4 h-4" />
-                    </div>
+          {/* Quick Credentials Badge Panel */}
+          <div className="mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              {[
+                { label: "ICAI Rank", value: "AIR 15", icon: GraduationCap, color: "from-green-500 to-emerald-600" },
+                { label: "Clients Served", value: "500+", icon: Users, color: "from-blue-500 to-cyan-600" },
+                { label: "Tax Savings", value: "₹125Cr+", icon: TrendingUp, color: "from-green-500 to-teal-600" },
+                { label: "IPOs Guided", value: "25+", icon: Crown, color: "from-purple-500 to-pink-600" }
+              ].map((badge, index) => (
+                <div
+                  key={index}
+                  className={`text-center p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-blue-300 shadow-lg hover:shadow-xl card-hover ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className={`w-12 h-12 bg-gradient-to-r ${badge.color} rounded-full flex items-center justify-center mx-auto mb-3`}>
+                    <badge.icon className="w-6 h-6 text-white card-icon" />
                   </div>
-
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2 leading-tight">CA Professional</h3>
-                  <p className="text-blue-600 font-normal">Elite Financial Strategist</p>
+                  <div className="font-bold text-xl text-gray-900 mb-1">{badge.value}</div>
+                  <div className="text-sm text-gray-600 font-medium">{badge.label}</div>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="text-center p-3 bg-white/70 rounded-xl border border-blue-200 hover:translate-y-[-2px] transition-transform duration-200">
-                    <div className="text-2xl font-bold text-blue-600 stat-counter leading-tight">500+</div>
-                    <div className="text-xs text-gray-600 font-normal">Clients</div>
-                  </div>
-                  <div className="text-center p-3 bg-white/70 rounded-xl border border-green-200 hover:translate-y-[-2px] transition-transform duration-200">
-                    <div className="text-2xl font-bold text-green-600 stat-counter leading-tight">15+</div>
-                    <div className="text-xs text-gray-600 font-normal">Years</div>
-                  </div>
-                  <div className="text-center p-3 bg-white/70 rounded-xl border border-purple-200 hover:translate-y-[-2px] transition-transform duration-200">
-                    <div className="text-2xl font-bold text-purple-600 stat-counter leading-tight">₹125Cr+</div>
-                    <div className="text-xs text-gray-600 font-normal">Saved</div>
-                  </div>
-                </div>
+          {/* Section Separator */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-16"></div>
 
-                {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-6 h-6 bg-blue-200/20 rounded-full"></div>
-                <div className="absolute bottom-4 left-4 w-4 h-4 bg-purple-200/20 rounded-full"></div>
-              </div>
+          {/* 2. Core Services / Expertise */}
+          <div className="mb-16 bg-gray-50/50 rounded-3xl p-8">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
+                Core <span className="gradient-text">Expertise</span>
+              </h3>
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg font-normal leading-relaxed">
+                Specialized financial services designed for high-net-worth individuals and corporations
+              </p>
             </div>
 
-            <div className={`${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
-                    Professional <span className="gradient-text">Excellence</span>
-                  </h3>
-
-                  <p className="text-gray-800 text-lg leading-relaxed mb-4 font-normal">
-                    As a distinguished Chartered Accountant with over <span className="font-semibold text-blue-700">15 years of elite experience</span>,
-                    I specialize in providing comprehensive financial services to businesses and high-net-worth individuals.
-                  </p>
-
-                  <p className="text-gray-800 leading-relaxed mb-6 font-normal">
-                    My expertise spans <span className="font-semibold text-blue-700">tax optimization</span>,
-                    <span className="font-semibold text-blue-700"> IPO consulting</span>,
-                    <span className="font-semibold text-blue-700"> M&A advisory</span>, and strategic financial planning.
-                    I've helped clients save over <span className="font-bold text-green-700">₹125 crores in taxes</span> while maintaining
-                    <span className="font-bold text-blue-700">100% compliance</span> across all engagements.
-                  </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Tax Optimization",
+                  description: "Strategic tax planning and compliance for maximum savings",
+                  icon: Shield,
+                  gradient: "from-blue-500 to-blue-600",
+                  stats: "₹125Cr+ Saved"
+                },
+                {
+                  title: "IPO Advisory",
+                  description: "End-to-end IPO readiness and listing guidance",
+                  icon: TrendingUp,
+                  gradient: "from-green-500 to-green-600",
+                  stats: "25+ IPOs Guided"
+                },
+                {
+                  title: "M&A Advisory",
+                  description: "Complex merger and acquisition transaction support",
+                  icon: Building,
+                  gradient: "from-purple-500 to-purple-600",
+                  stats: "₹5,000Cr+ Deals"
+                },
+                {
+                  title: "Financial Structuring",
+                  description: "Cross-border and domestic financial structure optimization",
+                  icon: Target,
+                  gradient: "from-orange-500 to-orange-600",
+                  stats: "500+ Structures"
+                },
+                {
+                  title: "Regulatory Compliance",
+                  description: "Comprehensive compliance management and risk mitigation",
+                  icon: CheckCircle,
+                  gradient: "from-teal-500 to-teal-600",
+                  stats: "100% Compliance"
+                },
+                {
+                  title: "Strategic Planning",
+                  description: "Long-term financial strategy and business planning",
+                  icon: Star,
+                  gradient: "from-indigo-500 to-indigo-600",
+                  stats: "15+ Years Experience"
+                }
+              ].map((service, index) => (
+                <div
+                  key={index}
+                  className={`bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-300 shadow-lg card-hover ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <div className={`w-14 h-14 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center mb-4`}>
+                    <service.icon className="w-7 h-7 text-white card-icon" />
+                  </div>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2 leading-tight">{service.title}</h4>
+                  <p className="text-gray-700 mb-3 leading-relaxed font-normal">{service.description}</p>
+                  <div className="text-sm font-semibold text-blue-600">{service.stats}</div>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Enhanced Achievement Cards */}
-                <div className="grid gap-4">
-                  {achievements.map((achievement, index) => (
-                    <div
-                      key={index}
-                      className={`group relative overflow-hidden bg-gradient-to-r from-white to-gray-50/50 rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:shadow-md hover:translate-y-[-3px] transition-all duration-200 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                      style={{ animationDelay: `${index * 150}ms` }}
-                    >
-                      <div className="flex items-center gap-4 p-4">
-                        <div className={`relative p-3 rounded-xl bg-gradient-to-r ${achievement.gradient} text-white shadow-md group-hover:scale-105 transition-all duration-200`}>
-                          <achievement.icon className="w-5 h-5 relative z-10" />
-                          <div className="absolute inset-0 bg-white/10 rounded-xl"></div>
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-gray-900 text-base mb-1 leading-tight">{achievement.text}</h4>
-                          <p className="text-sm text-gray-600 font-normal leading-relaxed">{achievement.subtitle}</p>
-                        </div>
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="w-2 h-8 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></div>
-                        </div>
-                      </div>
+          {/* Section Separator */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-16"></div>
 
-                      {/* Hover effect overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/3 to-purple-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-                    </div>
-                  ))}
+          {/* 3. Why Work With Me / Differentiators */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
+                Why Choose <span className="gradient-text">Our Expertise</span>
+              </h3>
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg font-normal leading-relaxed">
+                Unique differentiators that set us apart in the financial advisory landscape
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "All-India Rank Excellence",
+                  description: "AIR 15 in ICAI CA Final examinations with Gold Medal in Advanced Auditing",
+                  icon: GraduationCap,
+                  gradient: "from-yellow-500 to-orange-500",
+                  highlight: "Academic Excellence"
+                },
+                {
+                  title: "Zero Churn Consultancy",
+                  description: "400% client growth with zero churn rate - testament to exceptional service quality",
+                  icon: Users,
+                  gradient: "from-green-500 to-emerald-500",
+                  highlight: "Client Retention"
+                },
+                {
+                  title: "Cross-Border Expertise",
+                  description: "Specialized in complex international tax structures and multi-jurisdiction compliance",
+                  icon: Building,
+                  gradient: "from-blue-500 to-purple-500",
+                  highlight: "Global Reach"
+                }
+              ].map((differentiator, index) => (
+                <div
+                  key={index}
+                  className={`text-center p-8 bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-300 shadow-lg card-hover ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
+                  <div className={`w-16 h-16 bg-gradient-to-r ${differentiator.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
+                    <differentiator.icon className="w-8 h-8 text-white card-icon" />
+                  </div>
+                  <div className="mb-3">
+                    <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">
+                      {differentiator.highlight}
+                    </span>
+                  </div>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4 leading-tight">{differentiator.title}</h4>
+                  <p className="text-gray-700 leading-relaxed font-normal">{differentiator.description}</p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -372,14 +434,14 @@ const About = () => {
           {/* Section Separator */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-16"></div>
 
-          {/* Enhanced Motto & Goals Section */}
+          {/* 4. Core Values / Motto & Goals */}
           <div className="mb-16 bg-gray-50/50 rounded-3xl p-8">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
-                Our <span className="gradient-text">Motto & Goals</span>
+                Core <span className="gradient-text">Values</span>
               </h3>
               <p className="text-muted-foreground max-w-3xl mx-auto text-lg font-normal leading-relaxed">
-                The core values that guide our professional practice and client relationships
+                The fundamental principles that guide our professional practice and client relationships
               </p>
             </div>
             <div className="flex justify-center">
@@ -418,7 +480,7 @@ const About = () => {
           {/* Section Separator */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-16"></div>
 
-          {/* Enhanced Professional History Timeline */}
+          {/* 5. Professional Journey / Experience Timeline */}
           <div className="mb-16">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
@@ -522,14 +584,14 @@ const About = () => {
           {/* Section Separator */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-16"></div>
 
-          {/* Client Testimonials */}
+          {/* 6. Client Success / Trust Builder */}
           <div className="mb-16">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
-                Client <span className="gradient-text">Testimonials</span>
+                Client <span className="gradient-text">Success Stories</span>
               </h3>
               <p className="text-muted-foreground max-w-3xl mx-auto text-lg font-normal leading-relaxed">
-                What our clients say about our professional excellence and results
+                Real results and testimonials from our satisfied clients across diverse industries
               </p>
             </div>
 
@@ -621,34 +683,55 @@ const About = () => {
             </div>
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Ready to Optimize Your Financial Future?
+          {/* 7. Final Call to Action Section */}
+          <div className="text-center bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-12 border border-blue-200">
+            <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
+              Let's Work <span className="gradient-text">Together</span>
             </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Join 500+ successful clients who trust me with their financial growth.
-              Let's discuss how I can help maximize your wealth and ensure complete compliance.
+            <p className="text-xl text-gray-700 mb-2 font-medium">
+              Ready to Transform Your Financial Strategy?
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <p className="text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+              Join 500+ satisfied clients who have optimized their financial operations with our expert guidance.
+              Schedule a consultation today and discover how we can help you achieve your financial goals.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center cta-buttons">
               <button
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl hover:scale-105 text-lg"
               >
-                Schedule Free Consultation
+                📞 Book a Call
               </button>
               <button
                 onClick={() => {
-                  const servicesSection = document.getElementById('services');
-                  servicesSection?.scrollIntoView({ behavior: 'smooth' });
+                  // This would trigger a PDF download in a real implementation
+                  alert('Capabilities PDF download would be implemented here');
                 }}
-                className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 font-semibold"
+                className="px-10 py-4 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-200 font-semibold text-lg"
               >
-                View Services
+                📄 Download Capabilities PDF
               </button>
+            </div>
+
+            {/* Contact Info */}
+            <div className="mt-8 pt-6 border-t border-gray-300">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <span>📧</span>
+                  <span>contact@charterexcellence.com</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>📱</span>
+                  <span>+91 98765 43210</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>💼</span>
+                  <span>LinkedIn Profile</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
