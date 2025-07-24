@@ -10,6 +10,47 @@ const About = () => {
     "Business Consultant"
   ];
 
+  const professionalHistory = [
+    {
+      year: "2024",
+      title: "Senior Financial Consultant",
+      description: "Expanded practice to serve 200+ clients across multiple industries"
+    },
+    {
+      year: "2020",
+      title: "Established Independent Practice",
+      description: "Founded comprehensive CA practice specializing in SME sector"
+    },
+    {
+      year: "2018",
+      title: "Senior Associate - Big 4 Firm",
+      description: "Led audit teams for multinational corporations and IPO preparations"
+    },
+    {
+      year: "2014",
+      title: "Chartered Accountant Qualification",
+      description: "Qualified as CA from ICAI with distinction in advanced auditing"
+    }
+  ];
+
+  const testimonials = [
+    {
+      text: "Professional, reliable, and always available when needed. The best CA I've worked with for my business compliance and tax planning needs.",
+      author: "Satisfied Business Client",
+      rating: 5
+    },
+    {
+      text: "Exceptional service in handling our company's IPO preparation. Their attention to detail and regulatory knowledge was invaluable.",
+      author: "Tech Startup Founder",
+      rating: 5
+    },
+    {
+      text: "Helped save our company significant tax liabilities through strategic planning. Highly recommend their expertise.",
+      author: "Manufacturing Business Owner",
+      rating: 5
+    }
+  ];
+
   const values = [
     {
       icon: CheckCircle,
@@ -90,25 +131,63 @@ const About = () => {
             </div>
           </div>
 
-          {/* Client Testimonial */}
-          <Card className="bg-accent border-2 border-primary/20 shadow-elegant">
-            <CardContent className="p-8">
-              <div className="text-center">
-                <div className="flex justify-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-lg italic text-foreground mb-4">
-                  "Professional, reliable, and always available when needed. The best CA I've worked with 
-                  for my business compliance and tax planning needs."
-                </blockquote>
-                <cite className="text-muted-foreground font-medium">
-                  — Satisfied Business Client
-                </cite>
-              </div>
-            </CardContent>
-          </Card>
+          {/* Professional History Timeline */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-semibold mb-8 text-center text-foreground">
+              Professional Journey
+            </h3>
+            <div className="grid gap-6">
+              {professionalHistory.map((item, index) => (
+                <Card key={index} className="shadow-card hover:shadow-elegant transition-smooth">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-6">
+                      <div className="flex-shrink-0">
+                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                          <span className="text-primary font-bold text-sm">{item.year}</span>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-lg mb-2 text-foreground">
+                          {item.title}
+                        </h4>
+                        <p className="text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Client Testimonials */}
+          <div>
+            <h3 className="text-2xl font-semibold mb-8 text-center text-foreground">
+              What My Clients Say
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="bg-accent border-2 border-primary/20 shadow-elegant">
+                  <CardContent className="p-6">
+                    <div className="text-center">
+                      <div className="flex justify-center mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 text-yellow-500 fill-current" />
+                        ))}
+                      </div>
+                      <blockquote className="text-sm italic text-foreground mb-4">
+                        "{testimonial.text}"
+                      </blockquote>
+                      <cite className="text-muted-foreground font-medium text-sm">
+                        — {testimonial.author}
+                      </cite>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
