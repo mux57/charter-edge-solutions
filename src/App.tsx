@@ -15,7 +15,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/charter-edge-solutions">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/meetings" element={<MeetingScheduler />} />
