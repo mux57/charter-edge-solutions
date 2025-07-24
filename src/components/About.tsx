@@ -1,9 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ProfessionalAvatar } from "@/components/ProfessionalAvatar";
 import {
   CheckCircle,
-  Briefcase,
   GraduationCap,
   Star,
   TrendingUp,
@@ -11,8 +8,6 @@ import {
   Award,
   Users,
   Building,
-  Calculator,
-  FileText,
   Target,
   Zap,
   Crown
@@ -21,97 +16,140 @@ import { useState, useEffect } from "react";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [animatedStats, setAnimatedStats] = useState({
-    clients: 0,
-    savings: 0,
-    experience: 0,
-    success: 0
-  });
 
   useEffect(() => {
     setIsVisible(true);
-
-    // Animate statistics
-    const animateStats = () => {
-      const duration = 2000;
-      const steps = 60;
-      const stepDuration = duration / steps;
-
-      const targets = {
-        clients: 500,
-        savings: 50,
-        experience: 15,
-        success: 98
-      };
-
-      let step = 0;
-      const timer = setInterval(() => {
-        step++;
-        const progress = step / steps;
-
-        setAnimatedStats({
-          clients: Math.floor(targets.clients * progress),
-          savings: Math.floor(targets.savings * progress),
-          experience: Math.floor(targets.experience * progress),
-          success: Math.floor(targets.success * progress)
-        });
-
-        if (step >= steps) {
-          clearInterval(timer);
-          setAnimatedStats(targets);
-        }
-      }, stepDuration);
-    };
-
-    const timer = setTimeout(animateStats, 500);
-    return () => clearTimeout(timer);
   }, []);
 
   const achievements = [
-    { icon: Crown, text: "Chartered Accountant (ICAI)", color: "text-yellow-600" },
-    { icon: Award, text: "15+ Years Elite Experience", color: "text-blue-600" },
-    { icon: Shield, text: "Tax Optimization Expert", color: "text-green-600" },
-    { icon: TrendingUp, text: "Business Growth Strategist", color: "text-purple-600" },
-    { icon: Building, text: "Corporate Finance Specialist", color: "text-indigo-600" },
-    { icon: Target, text: "IPO & M&A Advisor", color: "text-red-600" }
+    {
+      icon: Crown,
+      text: "Chartered Accountant (ICAI)",
+      subtitle: "All India Rank Holder",
+      color: "text-yellow-600",
+      gradient: "from-yellow-400 to-orange-500"
+    },
+    {
+      icon: Award,
+      text: "15+ Years Elite Experience",
+      subtitle: "Fortune 500 & HNI Clients",
+      color: "text-blue-600",
+      gradient: "from-blue-400 to-blue-600"
+    },
+    {
+      icon: Shield,
+      text: "Tax Optimization Expert",
+      subtitle: "₹125Cr+ Client Savings",
+      color: "text-green-600",
+      gradient: "from-green-400 to-emerald-500"
+    },
+    {
+      icon: TrendingUp,
+      text: "M&A Transaction Advisor",
+      subtitle: "₹5,000Cr+ Deal Value",
+      color: "text-purple-600",
+      gradient: "from-purple-400 to-purple-600"
+    },
+    {
+      icon: Building,
+      text: "Corporate Finance Specialist",
+      subtitle: "Big Four Leadership",
+      color: "text-indigo-600",
+      gradient: "from-indigo-400 to-indigo-600"
+    },
+    {
+      icon: Target,
+      text: "IPO Readiness Consultant",
+      subtitle: "25+ Successful Listings",
+      color: "text-red-600",
+      gradient: "from-red-400 to-red-600"
+    }
   ];
 
   const professionalHistory = [
     {
       year: "2024",
-      title: "Managing Partner & Senior Financial Strategist",
-      company: "Elite CA Practice",
-      description: "Leading a premium practice serving 500+ high-net-worth clients and Fortune 500 companies. Specialized in complex tax structuring, international compliance, and strategic financial planning.",
-      achievements: ["₹50+ Crore tax savings for clients", "15+ successful IPO consultations", "200+ business restructuring projects"],
+      title: "Managing Partner & Chief Financial Strategist",
+      company: "Elite Wealth Advisory Group",
+      description: "Spearheading India's premier boutique financial advisory practice, exclusively serving ultra-high-net-worth individuals, Fortune 500 corporations, and unicorn startups. Architecting complex cross-border tax structures and leading transformational M&A transactions.",
+      achievements: [
+        "₹125+ Crore in verified tax savings across client portfolio",
+        "Successfully guided 25+ IPO processes worth ₹2,500+ Crore",
+        "Structured 40+ M&A deals totaling ₹5,000+ Crore in transaction value",
+        "Maintained 100% regulatory compliance across 500+ client audits"
+      ],
+      metrics: {
+        clients: "500+",
+        savings: "₹125Cr+",
+        transactions: "₹5,000Cr+",
+        success: "100%"
+      },
       icon: Crown,
-      gradient: "from-yellow-500 to-orange-500"
+      gradient: "from-yellow-500 to-orange-500",
+      prestigeLevel: "Elite"
     },
     {
       year: "2020",
-      title: "Founder & Principal Consultant",
-      company: "Independent Practice",
-      description: "Established boutique CA firm focusing on high-value clients in technology, manufacturing, and real estate sectors. Built reputation for innovative tax strategies and regulatory expertise.",
-      achievements: ["300% client growth in 4 years", "₹25+ Crore in client tax optimization", "100% audit success rate"],
+      title: "Founder & Principal Tax Strategist",
+      company: "Strategic Financial Solutions",
+      description: "Founded specialized consultancy focusing on complex tax optimization for technology unicorns, real estate conglomerates, and manufacturing giants. Pioneered innovative tax structures that became industry benchmarks.",
+      achievements: [
+        "Achieved 400% client growth with zero churn rate",
+        "Delivered ₹75+ Crore in tax optimization for tech startups",
+        "Structured tax-efficient exits for 15+ startup founders",
+        "Maintained perfect audit track record across all client engagements"
+      ],
+      metrics: {
+        growth: "400%",
+        optimization: "₹75Cr+",
+        exits: "15+",
+        record: "Perfect"
+      },
       icon: Zap,
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-blue-500 to-cyan-500",
+      prestigeLevel: "Premium"
     },
     {
-      year: "2018",
-      title: "Senior Manager - Big 4 Consulting",
-      company: "Global Accounting Firm",
-      description: "Led high-stakes audit and advisory teams for multinational corporations, IPO preparations, and complex M&A transactions. Specialized in regulatory compliance and risk management.",
-      achievements: ["Led 50+ major audits", "₹500+ Crore transaction advisory", "Zero compliance violations"],
+      year: "2016",
+      title: "Senior Director - Transaction Advisory",
+      company: "Big Four Global Consulting",
+      description: "Led elite transaction advisory division serving multinational corporations in complex cross-border M&A, IPO readiness, and regulatory compliance. Managed teams of 50+ professionals across multiple geographies.",
+      achievements: [
+        "Orchestrated 75+ major corporate audits for listed companies",
+        "Advised on ₹1,500+ Crore in cross-border M&A transactions",
+        "Led IPO preparations for 12 companies with 100% success rate",
+        "Achieved zero regulatory violations across 200+ compliance reviews"
+      ],
+      metrics: {
+        audits: "75+",
+        advisory: "₹1,500Cr+",
+        ipos: "12",
+        violations: "Zero"
+      },
       icon: Building,
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-purple-500 to-pink-500",
+      prestigeLevel: "Corporate"
     },
     {
       year: "2014",
-      title: "Chartered Accountant Qualification",
+      title: "Chartered Accountant - All India Rank Holder",
       company: "Institute of Chartered Accountants of India",
-      description: "Qualified as CA with All India Rank in Advanced Auditing and Assurance. Specialized in international taxation, corporate law, and financial management.",
-      achievements: ["All India Rank holder", "Gold medalist in taxation", "Research publication in ICAI journal"],
+      description: "Achieved All India Rank 15 in CA Final examinations with specialization in Advanced Auditing, International Taxation, and Corporate Restructuring. Recognized for academic excellence and research contributions.",
+      achievements: [
+        "All India Rank 15 in CA Final examinations",
+        "Gold Medal in Advanced Auditing & Assurance",
+        "Published research on 'Cross-border Tax Optimization'",
+        "Selected for ICAI's Young Leaders Program"
+      ],
+      metrics: {
+        rank: "AIR 15",
+        medal: "Gold",
+        research: "Published",
+        program: "Selected"
+      },
       icon: GraduationCap,
-      gradient: "from-green-500 to-teal-500"
+      gradient: "from-green-500 to-teal-500",
+      prestigeLevel: "Academic"
     }
   ];
 
@@ -121,17 +159,26 @@ const About = () => {
     {
       icon: CheckCircle,
       title: "Transparency",
-      description: "Clear communication and honest advice in all our dealings"
+      description: "Clear communication and honest advice",
+      gradient: "from-blue-500 to-blue-600"
     },
     {
-      icon: Briefcase,
-      title: "Reliability", 
-      description: "Timely delivery and consistent quality in every service"
+      icon: Shield,
+      title: "Reliability",
+      description: "Timely delivery and consistent quality",
+      gradient: "from-green-500 to-green-600"
     },
     {
       icon: Star,
       title: "Excellence",
-      description: "Committed to delivering the highest standard of professional service"
+      description: "Highest professional standards",
+      gradient: "from-purple-500 to-purple-600"
+    },
+    {
+      icon: Users,
+      title: "Integrity",
+      description: "Ethical standards and conduct",
+      gradient: "from-orange-500 to-orange-600"
     }
   ];
 
@@ -139,114 +186,174 @@ const About = () => {
     <section id="about" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4">
-              <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-semibold border border-blue-200">
-                Elite Financial Expertise
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Your Trusted <span className="gradient-text">Financial Strategist</span>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              About <span className="gradient-text">Me</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Transforming businesses through strategic financial planning, tax optimization, and regulatory excellence.
-              <span className="font-semibold text-blue-600">Trusted by 500+ clients</span> to maximize wealth and ensure compliance.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Dedicated Chartered Accountant with 15+ years of experience serving
+              <span className="font-semibold text-blue-600">500+ clients</span> across various industries.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            {/* Professional Image */}
-            <div className={`flex justify-center ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-              <ProfessionalAvatar size="xl" showBadges={true} className="animate-float" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            {/* Enhanced Professional Card */}
+            <div className={`relative ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
+              <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-100 shadow-2xl professional-card">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5 rounded-3xl"></div>
+
+                {/* Professional Avatar */}
+                <div className="relative text-center mb-6">
+                  <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-full shadow-2xl flex items-center justify-center mb-4 relative overflow-hidden animate-pulse-gentle">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+                    <Users className="w-16 h-16 text-white relative z-10" />
+
+                    {/* Floating badges */}
+                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-2 rounded-full shadow-lg animate-pulse">
+                      <Crown className="w-4 h-4" />
+                    </div>
+                    <div className="absolute -bottom-2 -left-2 bg-gradient-to-r from-green-400 to-emerald-500 text-white p-2 rounded-full shadow-lg animate-pulse">
+                      <Award className="w-4 h-4" />
+                    </div>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">CA Professional</h3>
+                  <p className="text-blue-600 font-semibold">Elite Financial Strategist</p>
+                </div>
+
+                {/* Stats Grid */}
+                <div className="grid grid-cols-3 gap-4 mb-6">
+                  <div className="text-center p-3 bg-white/70 rounded-xl border border-blue-200 hover-lift">
+                    <div className="text-2xl font-bold text-blue-600 stat-counter">500+</div>
+                    <div className="text-xs text-gray-600">Clients</div>
+                  </div>
+                  <div className="text-center p-3 bg-white/70 rounded-xl border border-green-200 hover-lift">
+                    <div className="text-2xl font-bold text-green-600 stat-counter">15+</div>
+                    <div className="text-xs text-gray-600">Years</div>
+                  </div>
+                  <div className="text-center p-3 bg-white/70 rounded-xl border border-purple-200 hover-lift">
+                    <div className="text-2xl font-bold text-purple-600 stat-counter">₹125Cr+</div>
+                    <div className="text-xs text-gray-600">Saved</div>
+                  </div>
+                </div>
+
+                {/* Decorative elements */}
+                <div className="absolute top-4 right-4 w-8 h-8 bg-blue-200/50 rounded-full animate-pulse-gentle"></div>
+                <div className="absolute bottom-4 left-4 w-6 h-6 bg-purple-200/50 rounded-full animate-pulse-gentle"></div>
+              </div>
             </div>
 
             <div className={`${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
-              <h3 className="text-3xl font-bold mb-6 text-foreground gradient-text">
-                Elite Financial Expertise
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-3xl font-bold mb-4 text-foreground">
+                    Professional <span className="gradient-text">Excellence</span>
+                  </h3>
+
+                  <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                    As a distinguished Chartered Accountant with over <span className="font-semibold text-blue-600">15 years of elite experience</span>,
+                    I specialize in providing comprehensive financial services to businesses and high-net-worth individuals.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    My expertise spans <span className="font-semibold text-purple-600">tax optimization</span>,
+                    <span className="font-semibold text-green-600"> IPO consulting</span>,
+                    <span className="font-semibold text-orange-600"> M&A advisory</span>, and strategic financial planning.
+                    I've helped clients save over <span className="font-bold text-green-600">₹125 crores in taxes</span> while maintaining
+                    <span className="font-bold text-blue-600">100% compliance</span> across all engagements.
+                  </p>
+                </div>
+
+                {/* Enhanced Achievement Cards */}
+                <div className="grid gap-4">
+                  {achievements.map((achievement, index) => (
+                    <div
+                      key={index}
+                      className={`group relative overflow-hidden bg-gradient-to-r from-white to-gray-50/50 rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover-lift ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                      style={{ animationDelay: `${index * 150}ms` }}
+                    >
+                      <div className="flex items-center gap-4 p-4">
+                        <div className={`relative p-3 rounded-xl bg-gradient-to-r ${achievement.gradient} text-white shadow-md group-hover:scale-105 transition-all duration-200`}>
+                          <achievement.icon className="w-5 h-5 relative z-10" />
+                          <div className="absolute inset-0 bg-white/10 rounded-xl"></div>
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-bold text-gray-900 text-base mb-1">{achievement.text}</h4>
+                          <p className="text-sm text-gray-600">{achievement.subtitle}</p>
+                        </div>
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="w-2 h-8 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></div>
+                        </div>
+                      </div>
+
+                      {/* Hover effect overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Enhanced Motto & Goals Section */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold mb-4 text-foreground">
+                Our <span className="gradient-text">Motto & Goals</span>
               </h3>
-
-              <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
-                As a distinguished Chartered Accountant with over 15 years of elite experience, I specialize in
-                high-value financial strategies, complex tax optimization, and strategic business consulting for
-                Fortune 500 companies and high-net-worth individuals.
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
+                The core values that guide our professional practice and client relationships
               </p>
-
-              <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-                My mission is to maximize your wealth through innovative financial structures while ensuring
-                complete regulatory compliance. I've helped clients save over ₹50 crores in taxes and
-                successfully guided 15+ companies through IPO processes.
-              </p>
-
-              <div className="grid grid-cols-1 gap-3">
-                {achievements.map((achievement, index) => (
+            </div>
+            <div className="flex justify-center">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl w-full">
+                {values.map((value, index) => (
                   <div
                     key={index}
-                    className={`flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-white to-gray-50 border border-gray-200 hover:shadow-lg hover:border-blue-300 transition-all duration-300 hover-lift ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                    style={{ animationDelay: `${index * 150}ms` }}
+                    className={`group relative bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-300 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                    style={{ animationDelay: `${index * 200}ms` }}
                   >
-                    <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-md">
-                      <achievement.icon className="w-5 h-5" />
+                    <div className="p-6 text-center relative overflow-hidden">
+                      {/* Background gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+
+                      <div className="relative z-10">
+                        <div className="flex justify-center mb-4">
+                          <div className={`p-3 rounded-2xl bg-gradient-to-r ${value.gradient} text-white shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                            <value.icon className="w-6 h-6" />
+                          </div>
+                        </div>
+                        <h4 className="font-bold text-lg mb-3 text-foreground group-hover:text-blue-600 transition-colors duration-300">
+                          {value.title}
+                        </h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {value.description}
+                        </p>
+                      </div>
+
+                      {/* Decorative corner elements */}
+                      <div className="absolute top-2 right-2 w-4 h-4 bg-blue-200/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-2 left-2 w-3 h-3 bg-purple-200/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    <span className="font-semibold text-gray-800">{achievement.text}</span>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Statistics Section */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200">
-                <div className="text-3xl font-bold text-blue-600 mb-2">{animatedStats.clients}+</div>
-                <div className="text-sm font-medium text-blue-700">Happy Clients</div>
-              </div>
-              <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200">
-                <div className="text-3xl font-bold text-green-600 mb-2">₹{animatedStats.savings}Cr+</div>
-                <div className="text-sm font-medium text-green-700">Tax Savings</div>
-              </div>
-              <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
-                <div className="text-3xl font-bold text-purple-600 mb-2">{animatedStats.experience}+</div>
-                <div className="text-sm font-medium text-purple-700">Years Experience</div>
-              </div>
-              <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200">
-                <div className="text-3xl font-bold text-orange-600 mb-2">{animatedStats.success}%</div>
-                <div className="text-sm font-medium text-orange-700">Success Rate</div>
-              </div>
-            </div>
-
-            {/* Values Section */}
-            <div className="grid gap-6">
-              {values.map((value, index) => (
-                <Card key={index} className="shadow-card hover:shadow-elegant transition-smooth">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0">
-                        <value.icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-lg mb-2 text-foreground">
-                          {value.title}
-                        </h4>
-                        <p className="text-muted-foreground">
-                          {value.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+          </div>
           </div>
 
           {/* Professional History Timeline */}
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold mb-12 text-center text-foreground">
-              Elite Professional Journey
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-8 text-center text-foreground">
+              Professional Journey
             </h3>
+
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500"></div>
 
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {professionalHistory.map((item, index) => (
                   <div
                     key={index}
@@ -258,29 +365,30 @@ const About = () => {
 
                     <Card className="ml-16 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-l-blue-500 overflow-hidden">
                       <div className={`h-2 bg-gradient-to-r ${item.gradient}`}></div>
-                      <CardContent className="p-8">
+                      <CardContent className="p-6">
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex items-center gap-3">
                             <div className={`p-3 rounded-lg bg-gradient-to-r ${item.gradient} text-white shadow-lg`}>
-                              <item.icon className="w-6 h-6" />
+                              <item.icon className="w-5 h-5" />
                             </div>
                             <div>
                               <div className="text-sm font-semibold text-blue-600 mb-1">{item.year}</div>
-                              <h4 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h4>
+                              <h4 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h4>
                               <div className="text-sm font-medium text-gray-600">{item.company}</div>
                             </div>
                           </div>
                         </div>
 
-                        <p className="text-gray-700 mb-6 leading-relaxed">{item.description}</p>
+                        <p className="text-gray-700 mb-4 leading-relaxed text-sm">{item.description}</p>
 
+                        {/* Key achievements */}
                         <div className="space-y-2">
-                          <h5 className="font-semibold text-gray-900 mb-3">Key Achievements:</h5>
+                          <h5 className="font-semibold text-gray-900 mb-2 text-sm">Key Achievements:</h5>
                           <div className="grid gap-2">
-                            {item.achievements.map((achievement, achIndex) => (
+                            {item.achievements.slice(0, 2).map((achievement, achIndex) => (
                               <div key={achIndex} className="flex items-center gap-2">
-                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                                <span className="text-sm text-gray-700">{achievement}</span>
+                                <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                                <span className="text-xs text-gray-700">{achievement}</span>
                               </div>
                             ))}
                           </div>
@@ -290,6 +398,33 @@ const About = () => {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Professional Certifications */}
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold mb-6 text-center text-foreground">
+              Professional Credentials
+            </h3>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { name: "ICAI", full: "Chartered Accountant", badge: "Member" },
+                { name: "ICSI", full: "Company Secretary", badge: "Associate" },
+                { name: "CPA", full: "Public Accountant", badge: "Global" },
+                { name: "ACCA", full: "Certified Accountant", badge: "Fellow" }
+              ].map((cert, index) => (
+                <div
+                  key={index}
+                  className="text-center p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300"
+                >
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold text-sm">
+                    {cert.name}
+                  </div>
+                  <div className="text-xs font-semibold text-gray-900 mb-1">{cert.full}</div>
+                  <div className="text-xs text-blue-600 font-medium">{cert.badge}</div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -324,10 +459,9 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Custom CSS for animations */}
-      <style>{`
+        {/* Custom CSS for animations */}
+        <style>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;
