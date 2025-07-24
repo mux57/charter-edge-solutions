@@ -1,48 +1,94 @@
-# Welcome to your Lovable project
+# Charter Edge Solutions
 
-## Project info
+A professional website for a Chartered Accountant showcasing financial advisory services, expertise, and client success stories.
 
-**URL**: https://lovable.dev/projects/b897367a-80a1-4d87-94ae-fcc1a70a8bc0
+## 🌟 Features
 
-## How can I edit this code?
+- **Professional Portfolio**: Comprehensive showcase of CA expertise and achievements
+- **Service Offerings**: Detailed information about tax optimization, IPO advisory, M&A services
+- **Client Testimonials**: Rotating carousel of client success stories
+- **Professional Timeline**: Interactive journey through career milestones
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **Modern UI/UX**: Clean, professional design with smooth animations
 
-There are several ways of editing your application.
+## 🚀 Live Demo
 
-**Use Lovable**
+Visit the live website: [https://YOUR_GITHUB_USERNAME.github.io/charter-edge-solutions](https://YOUR_GITHUB_USERNAME.github.io/charter-edge-solutions)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b897367a-80a1-4d87-94ae-fcc1a70a8bc0) and start prompting.
+## 🛠️ Built With
 
-Changes made via Lovable will be committed automatically to this repo.
+- **React 18** - Modern React with hooks
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool and dev server
+- **Tailwind CSS** - Utility-first CSS framework
+- **Shadcn/ui** - Beautiful and accessible UI components
+- **Lucide React** - Beautiful icons
 
-**Use your preferred IDE**
+## 📦 Installation & Setup
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Local Development
 
-Follow these steps:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/YOUR_GITHUB_USERNAME/charter-edge-solutions.git
+   cd charter-edge-solutions
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Open in browser**
+   ```
+   http://localhost:8080
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Build for Production
+
+```bash
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+### Deploy to GitHub Pages
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run deploy
+```
 
-**Use GitHub Codespaces**
+## 🚀 Deployment
+
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
+
+### Automatic Deployment
+- Push to `main` branch triggers automatic deployment
+- GitHub Actions builds and deploys the site
+- Available at: `https://YOUR_GITHUB_USERNAME.github.io/charter-edge-solutions`
+
+### Manual Deployment
+```bash
+npm run deploy
+```
+
+## 📱 Responsive Design
+
+- **Mobile First**: Optimized for mobile devices
+- **Tablet Friendly**: Great experience on tablets
+- **Desktop Enhanced**: Full features on desktop
+- **Touch Optimized**: Smooth touch interactions
+
+---
+
+**Built with ❤️ for professional excellence in financial advisory services**
 
 - Navigate to the main page of your repository.
 - Click on the "Code" button (green button) near the top right.
