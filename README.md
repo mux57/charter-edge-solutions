@@ -13,7 +13,7 @@ A professional website for a Chartered Accountant showcasing financial advisory 
 
 ## 🚀 Live Demo
 
-Visit the live website: [https://YOUR_GITHUB_USERNAME.github.io/charter-edge-solutions](https://YOUR_GITHUB_USERNAME.github.io/charter-edge-solutions)
+Visit the live website: [https://mux57.github.io/charter-edge-solutions](https://mux57.github.io/charter-edge-solutions)
 
 ## 🛠️ Built With
 
@@ -34,7 +34,7 @@ Visit the live website: [https://YOUR_GITHUB_USERNAME.github.io/charter-edge-sol
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/charter-edge-solutions.git
+   git clone https://github.com/mux57/charter-edge-solutions.git
    cd charter-edge-solutions
    ```
 
@@ -72,7 +72,7 @@ This project is configured for automatic deployment to GitHub Pages using GitHub
 ### Automatic Deployment
 - Push to `main` branch triggers automatic deployment
 - GitHub Actions builds and deploys the site
-- Available at: `https://YOUR_GITHUB_USERNAME.github.io/charter-edge-solutions`
+- Available at: `https://mux57.github.io/charter-edge-solutions`
 
 ### Manual Deployment
 ```bash
