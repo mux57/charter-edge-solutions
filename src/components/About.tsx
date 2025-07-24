@@ -187,10 +187,10 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground leading-tight">
               About <span className="gradient-text">Me</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Dedicated Chartered Accountant with 15+ years of experience serving
               <span className="font-semibold text-blue-600">500+ clients</span> across various industries.
             </p>
@@ -199,9 +199,9 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             {/* Enhanced Professional Card */}
             <div className={`relative ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-              <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-100 shadow-2xl professional-card">
+              <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 rounded-3xl p-6 border-2 border-blue-100 shadow-lg professional-card">
                 {/* Background Pattern */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5 rounded-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/3 to-purple-600/3 rounded-3xl"></div>
 
                 {/* Professional Avatar */}
                 <div className="relative text-center mb-6">
@@ -218,50 +218,50 @@ const About = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">CA Professional</h3>
-                  <p className="text-blue-600 font-semibold">Elite Financial Strategist</p>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-2 leading-tight">CA Professional</h3>
+                  <p className="text-blue-600 font-normal">Elite Financial Strategist</p>
                 </div>
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="text-center p-3 bg-white/70 rounded-xl border border-blue-200 hover-lift">
-                    <div className="text-2xl font-bold text-blue-600 stat-counter">500+</div>
-                    <div className="text-xs text-gray-600">Clients</div>
+                  <div className="text-center p-3 bg-white/70 rounded-xl border border-blue-200 hover:translate-y-[-2px] transition-transform duration-200">
+                    <div className="text-2xl font-bold text-blue-600 stat-counter leading-tight">500+</div>
+                    <div className="text-xs text-gray-600 font-normal">Clients</div>
                   </div>
-                  <div className="text-center p-3 bg-white/70 rounded-xl border border-green-200 hover-lift">
-                    <div className="text-2xl font-bold text-green-600 stat-counter">15+</div>
-                    <div className="text-xs text-gray-600">Years</div>
+                  <div className="text-center p-3 bg-white/70 rounded-xl border border-green-200 hover:translate-y-[-2px] transition-transform duration-200">
+                    <div className="text-2xl font-bold text-green-600 stat-counter leading-tight">15+</div>
+                    <div className="text-xs text-gray-600 font-normal">Years</div>
                   </div>
-                  <div className="text-center p-3 bg-white/70 rounded-xl border border-purple-200 hover-lift">
-                    <div className="text-2xl font-bold text-purple-600 stat-counter">₹125Cr+</div>
-                    <div className="text-xs text-gray-600">Saved</div>
+                  <div className="text-center p-3 bg-white/70 rounded-xl border border-purple-200 hover:translate-y-[-2px] transition-transform duration-200">
+                    <div className="text-2xl font-bold text-purple-600 stat-counter leading-tight">₹125Cr+</div>
+                    <div className="text-xs text-gray-600 font-normal">Saved</div>
                   </div>
                 </div>
 
                 {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-8 h-8 bg-blue-200/50 rounded-full animate-pulse-gentle"></div>
-                <div className="absolute bottom-4 left-4 w-6 h-6 bg-purple-200/50 rounded-full animate-pulse-gentle"></div>
+                <div className="absolute top-4 right-4 w-6 h-6 bg-blue-200/20 rounded-full"></div>
+                <div className="absolute bottom-4 left-4 w-4 h-4 bg-purple-200/20 rounded-full"></div>
               </div>
             </div>
 
             <div className={`${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-3xl font-bold mb-4 text-foreground">
+                  <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
                     Professional <span className="gradient-text">Excellence</span>
                   </h3>
 
-                  <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                  <p className="text-gray-700 text-lg leading-relaxed mb-4 font-normal">
                     As a distinguished Chartered Accountant with over <span className="font-semibold text-blue-600">15 years of elite experience</span>,
                     I specialize in providing comprehensive financial services to businesses and high-net-worth individuals.
                   </p>
 
-                  <p className="text-gray-700 leading-relaxed mb-6">
+                  <p className="text-gray-700 leading-relaxed mb-6 font-normal">
                     My expertise spans <span className="font-semibold text-purple-600">tax optimization</span>,
                     <span className="font-semibold text-green-600"> IPO consulting</span>,
                     <span className="font-semibold text-orange-600"> M&A advisory</span>, and strategic financial planning.
-                    I've helped clients save over <span className="font-bold text-green-600">₹125 crores in taxes</span> while maintaining
-                    <span className="font-bold text-blue-600">100% compliance</span> across all engagements.
+                    I've helped clients save over <span className="font-semibold text-green-600">₹125 crores in taxes</span> while maintaining
+                    <span className="font-semibold text-blue-600">100% compliance</span> across all engagements.
                   </p>
                 </div>
 
@@ -270,7 +270,7 @@ const About = () => {
                   {achievements.map((achievement, index) => (
                     <div
                       key={index}
-                      className={`group relative overflow-hidden bg-gradient-to-r from-white to-gray-50/50 rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 hover-lift ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                      className={`group relative overflow-hidden bg-gradient-to-r from-white to-gray-50/50 rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:shadow-md hover:translate-y-[-3px] transition-all duration-200 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
                       style={{ animationDelay: `${index * 150}ms` }}
                     >
                       <div className="flex items-center gap-4 p-4">
@@ -279,8 +279,8 @@ const About = () => {
                           <div className="absolute inset-0 bg-white/10 rounded-xl"></div>
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-bold text-gray-900 text-base mb-1">{achievement.text}</h4>
-                          <p className="text-sm text-gray-600">{achievement.subtitle}</p>
+                          <h4 className="font-semibold text-gray-900 text-base mb-1 leading-tight">{achievement.text}</h4>
+                          <p className="text-sm text-gray-600 font-normal leading-relaxed">{achievement.subtitle}</p>
                         </div>
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <div className="w-2 h-8 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></div>
@@ -288,7 +288,7 @@ const About = () => {
                       </div>
 
                       {/* Hover effect overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/3 to-purple-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                     </div>
                   ))}
                 </div>
@@ -299,10 +299,10 @@ const About = () => {
           {/* Enhanced Motto & Goals Section */}
           <div className="mb-16">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold mb-4 text-foreground">
+              <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
                 Our <span className="gradient-text">Motto & Goals</span>
               </h3>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg font-normal leading-relaxed">
                 The core values that guide our professional practice and client relationships
               </p>
             </div>
@@ -311,30 +311,26 @@ const About = () => {
                 {values.map((value, index) => (
                   <div
                     key={index}
-                    className={`group relative bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-300 shadow-lg hover:shadow-2xl transition-all duration-500 hover-lift ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                    className={`group relative bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-300 shadow-lg hover:shadow-lg hover:translate-y-[-3px] transition-all duration-200 min-h-[180px] ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
-                    <div className="p-6 text-center relative overflow-hidden">
+                    <div className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
                       {/* Background gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-2xl"></div>
 
-                      <div className="relative z-10">
+                      <div className="relative z-10 flex flex-col items-center">
                         <div className="flex justify-center mb-4">
-                          <div className={`p-3 rounded-2xl bg-gradient-to-r ${value.gradient} text-white shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                          <div className={`p-3 rounded-2xl bg-gradient-to-r ${value.gradient} text-white shadow-md group-hover:scale-105 transition-transform duration-200`}>
                             <value.icon className="w-6 h-6" />
                           </div>
                         </div>
-                        <h4 className="font-bold text-lg mb-3 text-foreground group-hover:text-blue-600 transition-colors duration-300">
+                        <h4 className="font-semibold text-lg mb-3 text-foreground group-hover:text-blue-600 transition-colors duration-200 leading-tight">
                           {value.title}
                         </h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                        <p className="text-muted-foreground text-sm leading-relaxed font-normal">
                           {value.description}
                         </p>
                       </div>
-
-                      {/* Decorative corner elements */}
-                      <div className="absolute top-2 right-2 w-4 h-4 bg-blue-200/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-2 left-2 w-3 h-3 bg-purple-200/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   </div>
                 ))}
@@ -520,14 +516,14 @@ const About = () => {
           animation: pulse 3s ease-in-out infinite;
         }
 
-        /* Hover effects */
+        /* Optimized hover effects */
         .hover-lift {
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hover-lift:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         /* Gradient text */
@@ -557,7 +553,7 @@ const About = () => {
 
         /* Professional card hover effects */
         .professional-card {
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;
           overflow: hidden;
         }
@@ -569,8 +565,8 @@ const About = () => {
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-          transition: left 0.5s;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+          transition: left 0.3s;
         }
 
         .professional-card:hover::before {
@@ -578,8 +574,8 @@ const About = () => {
         }
 
         .professional-card:hover {
-          transform: translateY(-5px) scale(1.02);
-          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+          transform: translateY(-3px) scale(1.01);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
         /* Responsive adjustments */
@@ -592,6 +588,32 @@ const About = () => {
           .timeline-item:nth-child(even) {
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease-out forwards;
+          }
+
+          /* Touch device optimizations */
+          .professional-card:hover {
+            transform: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+          }
+
+          .hover-lift:hover {
+            transform: translateY(-2px);
+          }
+
+          /* Disable complex animations on mobile for performance */
+          .professional-card::before {
+            display: none;
+          }
+        }
+
+        /* Touch device support */
+        @media (hover: none) and (pointer: coarse) {
+          .group:active {
+            transform: scale(0.98);
+          }
+
+          .professional-card:active {
+            transform: scale(0.99);
           }
         }
       `}</style>
