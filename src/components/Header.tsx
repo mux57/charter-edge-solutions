@@ -1,11 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { Menu, Phone, Mail } from "lucide-react";
+import { Menu, Phone, Mail, Calendar } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const isHomePage = location.pathname === '/';
 
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
@@ -16,29 +22,53 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-6">
-            <button 
-              onClick={() => scrollToSection('home')}
-              className="text-foreground hover:text-primary transition-smooth"
+            {isHomePage ? (
+              <>
+                <button
+                  onClick={() => scrollToSection('home')}
+                  className="text-foreground hover:text-primary transition-smooth"
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => scrollToSection('about')}
+                  className="text-foreground hover:text-primary transition-smooth"
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="text-foreground hover:text-primary transition-smooth"
+                >
+                  Services
+                </button>
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="text-foreground hover:text-primary transition-smooth"
+                >
+                  Contact
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => navigate('/')}
+                className="text-foreground hover:text-primary transition-smooth"
+              >
+                Home
+              </button>
+            )}
+            <button
+              onClick={() => navigate('/meetings')}
+              className="text-foreground hover:text-primary transition-smooth flex items-center gap-2"
             >
-              Home
+              <Calendar size={16} />
+              Meetings
             </button>
-            <button 
-              onClick={() => scrollToSection('about')}
+            <button
+              onClick={() => navigate('/testimonial-demo')}
               className="text-foreground hover:text-primary transition-smooth"
             >
-              About
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-primary transition-smooth"
-            >
-              Services
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="text-foreground hover:text-primary transition-smooth"
-            >
-              Contact
+              Demo
             </button>
           </nav>
 
@@ -47,12 +77,12 @@ const Header = () => {
               <Phone size={16} />
               <span>+91 98765 43210</span>
             </div>
-            <Button 
-              variant="hero" 
+            <Button
+              variant="hero"
               size="sm"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => navigate('/meetings')}
             >
-              Book Consultation
+              Schedule Meeting
             </Button>
           </div>
 
