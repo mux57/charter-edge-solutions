@@ -10,7 +10,9 @@ import {
   Building,
   Target,
   Zap,
-  Crown
+  Crown,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -167,23 +169,53 @@ const About = () => {
       author: "Rajesh Kumar",
       position: "CEO, TechVenture Solutions",
       company: "Fortune 500 Technology Company",
-      rating: 5
+      rating: 5,
+      featured: true
     },
     {
       quote: "Led our IPO process flawlessly, ensuring 100% compliance and optimal valuation. A true professional who delivers beyond expectations.",
       author: "Priya Sharma",
       position: "CFO, GreenEnergy Corp",
       company: "Renewable Energy Sector",
-      rating: 5
+      rating: 5,
+      featured: false
     },
     {
       quote: "His innovative tax structures for our M&A deals resulted in significant savings. Highly recommend for complex financial advisory needs.",
       author: "Michael Chen",
       position: "Managing Director",
       company: "Global Investment Fund",
-      rating: 5
+      rating: 5,
+      featured: false
+    },
+    {
+      quote: "Transformed our compliance framework, reducing audit time by 60% while maintaining zero violations. Outstanding professional expertise.",
+      author: "Dr. Anita Desai",
+      position: "Board Member & Former CFO",
+      company: "Healthcare Conglomerate",
+      rating: 5,
+      featured: false
+    },
+    {
+      quote: "His cross-border structuring expertise helped us expand globally with optimal tax efficiency. Saved us millions in the process.",
+      author: "James Wilson",
+      position: "International Finance Director",
+      company: "Manufacturing Giant",
+      rating: 5,
+      featured: false
     }
   ];
+
+  // Carousel state
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
   const clientLogos = [
     { name: "TechCorp", industry: "Technology" },
@@ -327,7 +359,7 @@ const About = () => {
               ].map((service, index) => (
                 <div
                   key={index}
-                  className={`bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-300 shadow-lg card-hover ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  className={`bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-300 shadow-lg card-hover service-card ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <div className={`w-14 h-14 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center mb-4`}>
@@ -584,102 +616,158 @@ const About = () => {
           {/* Section Separator */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-16"></div>
 
-          {/* 6. Client Success / Trust Builder */}
+          {/* 6. Client Success / Trust Builder - Rotating Carousel */}
           <div className="mb-16">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
-                Client <span className="gradient-text">Success Stories</span>
+                What Our <span className="gradient-text">Clients Say</span>
               </h3>
               <p className="text-muted-foreground max-w-3xl mx-auto text-lg font-normal leading-relaxed">
                 Real results and testimonials from our satisfied clients across diverse industries
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 testimonial-grid">
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl hover:translate-y-[-3px] transition-all duration-200 border-2 border-gray-100 hover:border-blue-200 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                  style={{ animationDelay: `${(index + 10) * 200}ms` }}
-                >
+            {/* Testimonial Carousel */}
+            <div className="relative max-w-4xl mx-auto">
+              <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-2 border-gray-100 min-h-[280px] flex items-center">
+                <div className="w-full">
                   {/* Rating Stars */}
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  <div className="flex items-center justify-center gap-1 mb-6">
+                    {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                      <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
 
                   {/* Quote */}
-                  <blockquote className="text-gray-700 mb-4 leading-relaxed font-normal italic">
-                    "{testimonial.quote}"
+                  <blockquote className="text-gray-800 text-xl md:text-2xl mb-8 leading-[1.5] font-normal italic text-center testimonial-quote">
+                    "{testimonials[currentTestimonial].quote}"
                   </blockquote>
 
                   {/* Author Info */}
-                  <div className="border-t pt-4">
-                    <div className="font-semibold text-gray-900 leading-tight">{testimonial.author}</div>
-                    <div className="text-sm text-blue-600 font-medium">{testimonial.position}</div>
-                    <div className="text-xs text-gray-500 mt-1">{testimonial.company}</div>
+                  <div className="text-center border-t pt-6">
+                    <div className="font-bold text-xl text-gray-900 mb-1 testimonial-author">{testimonials[currentTestimonial].author}</div>
+                    <div className="text-lg text-blue-600 font-semibold mb-1">{testimonials[currentTestimonial].position}</div>
+                    <div className="text-sm text-gray-500">{testimonials[currentTestimonial].company}</div>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border-2 border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-200 flex items-center justify-center group"
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
+              </button>
+              <button
+                onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border-2 border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-200 flex items-center justify-center group"
+              >
+                <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
+              </button>
+
+              {/* Dots Indicator */}
+              <div className="flex justify-center mt-8 gap-3">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                      index === currentTestimonial
+                        ? 'bg-blue-600 scale-125'
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Trusted by Leading Companies */}
-          <div className="mb-16">
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-semibold text-gray-900 mb-2 leading-tight">
-                Trusted by <span className="text-blue-600">500+</span> Leading Companies
-              </h4>
-              <p className="text-gray-600 text-sm">
-                From startups to Fortune 500 companies across diverse industries
+          {/* Professional Credentials & Values - Merged Section */}
+          <div className="mb-16 bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-3xl p-8">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
+                Professional <span className="gradient-text">Foundation</span>
+              </h3>
+              <p className="text-muted-foreground max-w-3xl mx-auto text-lg font-normal leading-relaxed">
+                Our credentials and core values that ensure exceptional service delivery
               </p>
             </div>
 
-            <div className="relative overflow-hidden">
-              <div className="flex animate-scroll space-x-8">
-                {[...clientLogos, ...clientLogos].map((client, index) => (
+            {/* Credentials Row */}
+            <div className="mb-12">
+              <h4 className="text-xl font-semibold text-center text-gray-900 mb-6">Professional Credentials</h4>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                {[
+                  { name: "ICAI", full: "Chartered Accountant", badge: "Member" },
+                  { name: "ICSI", full: "Company Secretary", badge: "Associate" },
+                  { name: "CPA", full: "Public Accountant", badge: "Global" },
+                  { name: "ACCA", full: "Certified Accountant", badge: "Fellow" }
+                ].map((cert, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow duration-200 min-w-[140px]"
+                    className="text-center p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:shadow-lg hover:scale-105 transition-all duration-200 card-hover credential-card"
                   >
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-2">
-                        <span className="text-white font-bold text-sm">{client.name.slice(0, 2)}</span>
-                      </div>
-                      <div className="font-semibold text-gray-900 text-sm">{client.name}</div>
-                      <div className="text-xs text-gray-500">{client.industry}</div>
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 text-white font-bold text-sm shadow-md">
+                      {cert.name}
                     </div>
+                    <div className="text-sm font-semibold text-gray-900 mb-1 leading-tight">{cert.full}</div>
+                    <div className="text-xs text-blue-600 font-medium">{cert.badge}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Values Row */}
+            <div>
+              <h4 className="text-xl font-semibold text-center text-gray-900 mb-6">Core Values</h4>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {values.map((value, index) => (
+                  <div
+                    key={index}
+                    className="text-center p-6 bg-white rounded-xl border-2 border-gray-200 hover:border-blue-300 shadow-md hover:shadow-lg transition-all duration-200 card-hover value-card flex flex-col justify-center"
+                  >
+                    <div className="flex justify-center mb-4">
+                      <div className={`p-3 rounded-xl bg-gradient-to-r ${value.gradient} text-white shadow-md`}>
+                        <value.icon className="w-5 h-5 card-icon" />
+                      </div>
+                    </div>
+                    <h5 className="font-semibold text-lg mb-2 text-foreground leading-tight">{value.title}</h5>
+                    <p className="text-muted-foreground text-sm leading-relaxed font-normal">{value.description}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Professional Certifications */}
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold mb-6 text-center text-foreground">
-              Professional Credentials
-            </h3>
+          {/* Trusted by Leading Companies - Right Before CTA */}
+          <div className="mb-12">
+            <div className="text-center mb-8">
+              <h4 className="text-2xl font-bold text-gray-900 mb-3 leading-tight">
+                Trusted by <span className="text-blue-600">500+</span> Leading Companies
+              </h4>
+              <p className="text-gray-600">
+                From startups to Fortune 500 companies across diverse industries
+              </p>
+            </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { name: "ICAI", full: "Chartered Accountant", badge: "Member" },
-                { name: "ICSI", full: "Company Secretary", badge: "Associate" },
-                { name: "CPA", full: "Public Accountant", badge: "Global" },
-                { name: "ACCA", full: "Certified Accountant", badge: "Fellow" }
-              ].map((cert, index) => (
-                <div
-                  key={index}
-                  className="text-center p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300"
-                >
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold text-sm">
-                    {cert.name}
+            <div className="relative overflow-hidden bg-gray-50 rounded-2xl py-8">
+              <div className="flex animate-scroll space-x-6">
+                {[...clientLogos, ...clientLogos].map((client, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-all duration-200 min-w-[140px] hover:scale-105"
+                  >
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
+                        <span className="text-white font-bold text-sm">{client.name.slice(0, 2)}</span>
+                      </div>
+                      <div className="font-semibold text-gray-900 text-sm mb-1">{client.name}</div>
+                      <div className="text-xs text-gray-500">{client.industry}</div>
+                    </div>
                   </div>
-                  <div className="text-xs font-semibold text-gray-900 mb-1">{cert.full}</div>
-                  <div className="text-xs text-blue-600 font-medium">{cert.badge}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
@@ -807,12 +895,25 @@ const About = () => {
         }
 
         .card-hover:hover {
-          transform: scale(1.03);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+          transform: scale(1.02) translateY(-2px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
         }
 
         .card-hover:hover .card-icon {
           animation: iconBounce 0.3s ease-in-out;
+        }
+
+        /* Consistent card heights and spacing */
+        .credential-card {
+          min-height: 120px;
+        }
+
+        .value-card {
+          min-height: 160px;
+        }
+
+        .service-card {
+          min-height: 200px;
         }
 
         @keyframes iconBounce {
@@ -974,6 +1075,25 @@ const About = () => {
           .cta-buttons button {
             width: 100% !important;
             padding: 0.75rem 1.5rem !important;
+          }
+
+          /* Mobile typography improvements */
+          .testimonial-quote {
+            font-size: 1.125rem !important;
+            line-height: 1.6 !important;
+          }
+
+          .testimonial-author {
+            font-size: 1rem !important;
+          }
+
+          .card-title {
+            font-size: 1rem !important;
+          }
+
+          .card-description {
+            font-size: 0.875rem !important;
+            line-height: 1.5 !important;
           }
         }
 
