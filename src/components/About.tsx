@@ -185,6 +185,17 @@ const About = () => {
     }
   ];
 
+  const clientLogos = [
+    { name: "TechCorp", industry: "Technology" },
+    { name: "FinanceMax", industry: "Banking" },
+    { name: "GreenEnergy", industry: "Renewable" },
+    { name: "MedTech", industry: "Healthcare" },
+    { name: "AutoDrive", industry: "Automotive" },
+    { name: "RetailPlus", industry: "E-commerce" },
+    { name: "EduTech", industry: "Education" },
+    { name: "RealEstate", industry: "Property" }
+  ];
+
   const values = [
     {
       icon: CheckCircle,
@@ -213,7 +224,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-muted/30">
+    <section id="about" className="pt-12 pb-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -281,17 +292,17 @@ const About = () => {
                     Professional <span className="gradient-text">Excellence</span>
                   </h3>
 
-                  <p className="text-gray-700 text-lg leading-relaxed mb-4 font-normal">
-                    As a distinguished Chartered Accountant with over <span className="font-semibold text-blue-600">15 years of elite experience</span>,
+                  <p className="text-gray-800 text-lg leading-relaxed mb-4 font-normal">
+                    As a distinguished Chartered Accountant with over <span className="font-semibold text-blue-700">15 years of elite experience</span>,
                     I specialize in providing comprehensive financial services to businesses and high-net-worth individuals.
                   </p>
 
-                  <p className="text-gray-700 leading-relaxed mb-6 font-normal">
-                    My expertise spans <span className="font-semibold text-purple-600">tax optimization</span>,
-                    <span className="font-semibold text-green-600"> IPO consulting</span>,
-                    <span className="font-semibold text-orange-600"> M&A advisory</span>, and strategic financial planning.
-                    I've helped clients save over <span className="font-semibold text-green-600">₹125 crores in taxes</span> while maintaining
-                    <span className="font-semibold text-blue-600">100% compliance</span> across all engagements.
+                  <p className="text-gray-800 leading-relaxed mb-6 font-normal">
+                    My expertise spans <span className="font-semibold text-blue-700">tax optimization</span>,
+                    <span className="font-semibold text-blue-700"> IPO consulting</span>,
+                    <span className="font-semibold text-blue-700"> M&A advisory</span>, and strategic financial planning.
+                    I've helped clients save over <span className="font-bold text-green-700">₹125 crores in taxes</span> while maintaining
+                    <span className="font-bold text-blue-700">100% compliance</span> across all engagements.
                   </p>
                 </div>
 
@@ -335,7 +346,7 @@ const About = () => {
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Get expert guidance tailored to your business needs. Book a free consultation today.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center cta-buttons">
                 <button
                   onClick={() => {
                     const contactSection = document.getElementById('contact');
@@ -358,8 +369,11 @@ const About = () => {
             </div>
           </div>
 
+          {/* Section Separator */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-16"></div>
+
           {/* Enhanced Motto & Goals Section */}
-          <div className="mb-16">
+          <div className="mb-16 bg-gray-50/50 rounded-3xl p-8">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold mb-4 text-foreground leading-tight">
                 Our <span className="gradient-text">Motto & Goals</span>
@@ -373,7 +387,7 @@ const About = () => {
                 {values.map((value, index) => (
                   <div
                     key={index}
-                    className={`group relative bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-300 shadow-lg hover:shadow-lg hover:translate-y-[-3px] transition-all duration-200 min-h-[180px] ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                    className={`group relative bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-300 shadow-lg min-h-[180px] card-hover ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
                     <div className="p-6 text-center relative overflow-hidden h-full flex flex-col justify-between">
@@ -383,7 +397,7 @@ const About = () => {
                       <div className="relative z-10 flex flex-col items-center">
                         <div className="flex justify-center mb-4">
                           <div className={`p-3 rounded-2xl bg-gradient-to-r ${value.gradient} text-white shadow-md group-hover:scale-105 transition-transform duration-200`}>
-                            <value.icon className="w-6 h-6" />
+                            <value.icon className="w-6 h-6 card-icon" />
                           </div>
                         </div>
                         <h4 className="font-semibold text-lg mb-3 text-foreground group-hover:text-blue-600 transition-colors duration-200 leading-tight">
@@ -400,6 +414,9 @@ const About = () => {
             </div>
           </div>
           </div>
+
+          {/* Section Separator */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-16"></div>
 
           {/* Enhanced Professional History Timeline */}
           <div className="mb-16">
@@ -502,6 +519,9 @@ const About = () => {
             </div>
           </div>
 
+          {/* Section Separator */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-16"></div>
+
           {/* Client Testimonials */}
           <div className="mb-16">
             <div className="text-center mb-12">
@@ -540,6 +560,37 @@ const About = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Trusted by Leading Companies */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h4 className="text-xl font-semibold text-gray-900 mb-2 leading-tight">
+                Trusted by <span className="text-blue-600">500+</span> Leading Companies
+              </h4>
+              <p className="text-gray-600 text-sm">
+                From startups to Fortune 500 companies across diverse industries
+              </p>
+            </div>
+
+            <div className="relative overflow-hidden">
+              <div className="flex animate-scroll space-x-8">
+                {[...clientLogos, ...clientLogos].map((client, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow duration-200 min-w-[140px]"
+                  >
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                        <span className="text-white font-bold text-sm">{client.name.slice(0, 2)}</span>
+                      </div>
+                      <div className="font-semibold text-gray-900 text-sm">{client.name}</div>
+                      <div className="text-xs text-gray-500">{client.industry}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -604,6 +655,11 @@ const About = () => {
 
         {/* Custom CSS for animations */}
         <style>{`
+        /* Smooth scroll behavior */
+        html {
+          scroll-behavior: smooth;
+        }
+
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -660,6 +716,47 @@ const About = () => {
 
         .animate-pulse-gentle {
           animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Enhanced card hover animations */
+        .card-hover {
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+          transform: scale(1.03);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-hover:hover .card-icon {
+          animation: iconBounce 0.3s ease-in-out;
+        }
+
+        @keyframes iconBounce {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-3px);
+          }
+        }
+
+        /* Client logos scrolling animation */
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+        }
+
+        .animate-scroll:hover {
+          animation-play-state: paused;
         }
 
         /* Optimized hover effects */
@@ -774,6 +871,27 @@ const About = () => {
             grid-template-columns: 1fr !important;
             gap: 1rem !important;
           }
+
+          /* Mobile card adjustments */
+          .card-hover {
+            padding: 1rem !important;
+          }
+
+          .card-hover .card-icon {
+            width: 1.25rem !important;
+            height: 1.25rem !important;
+          }
+
+          /* Mobile CTA buttons */
+          .cta-buttons {
+            flex-direction: column !important;
+            gap: 0.75rem !important;
+          }
+
+          .cta-buttons button {
+            width: 100% !important;
+            padding: 0.75rem 1.5rem !important;
+          }
         }
 
         /* Touch device support */
@@ -786,7 +904,48 @@ const About = () => {
             transform: scale(0.99);
           }
         }
+
+        /* Mobile sticky CTA button */
+        .mobile-sticky-cta {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          z-index: 50;
+          display: none;
+          background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+          color: white;
+          border: none;
+          border-radius: 50px;
+          padding: 12px 20px;
+          font-weight: 600;
+          font-size: 14px;
+          box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+          transition: all 0.3s ease;
+          animation: pulse 2s infinite;
+        }
+
+        .mobile-sticky-cta:hover {
+          transform: scale(1.05);
+          box-shadow: 0 12px 35px rgba(79, 70, 229, 0.4);
+        }
+
+        @media (max-width: 768px) {
+          .mobile-sticky-cta {
+            display: block;
+          }
+        }
       `}</style>
+
+      {/* Mobile Sticky CTA */}
+      <button
+        onClick={() => {
+          const contactSection = document.getElementById('contact');
+          contactSection?.scrollIntoView({ behavior: 'smooth' });
+        }}
+        className="mobile-sticky-cta"
+      >
+        📞 Schedule
+      </button>
     </section>
   );
 };
